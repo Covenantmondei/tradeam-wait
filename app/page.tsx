@@ -8,7 +8,7 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Replace this URL with your actual Google Forms URL
-  const GOOGLE_FORMS_URL = "https://forms.google.com/your-form-url-here"
+  const GOOGLE_FORMS_URL = "https://forms.gle/M3WbHxfXtbExnw45A"
 
   const handleJoinWaitlist = () => {
     window.open(GOOGLE_FORMS_URL, "_blank", "noopener,noreferrer")
