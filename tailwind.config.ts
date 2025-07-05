@@ -63,30 +63,6 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        maroon: {
-          50: "#fdf2f2",
-          100: "#fce7e7",
-          200: "#f9d2d2",
-          300: "#f4b0b0",
-          400: "#ec8080",
-          500: "#e05555",
-          600: "#cc3333",
-          700: "#aa2222",
-          800: "#8b1e1e",
-          900: "#741d1d",
-        },
-        gold: {
-          50: "#fffef7",
-          100: "#fffbeb",
-          200: "#fff4c6",
-          300: "#ffe991",
-          400: "#ffd652",
-          500: "#ffc107",
-          600: "#ffb000",
-          700: "#cc8800",
-          800: "#a16a00",
-          900: "#855700",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -106,15 +82,74 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-down": {
+          "0%": { opacity: "0", transform: "translateY(-10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        blob: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+          "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" },
+        },
+        "gradient-text": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out",
+        "fade-in-up": "fade-in-up 0.8s ease-out",
+        "slide-down": "slide-down 0.3s ease-out",
+        blob: "blob 7s infinite",
+        "gradient-text": "gradient-text 3s ease infinite",
+      },
+      animationDelay: {
+        "200": "200ms",
+        "400": "400ms",
+        "600": "600ms",
+        "800": "800ms",
+        "1000": "1000ms",
+        "2000": "2000ms",
+        "4000": "4000ms",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    ({ addUtilities }: any) => {
+      const newUtilities = {
+        ".animation-delay-200": {
+          "animation-delay": "200ms",
+        },
+        ".animation-delay-400": {
+          "animation-delay": "400ms",
+        },
+        ".animation-delay-600": {
+          "animation-delay": "600ms",
+        },
+        ".animation-delay-800": {
+          "animation-delay": "800ms",
+        },
+        ".animation-delay-1000": {
+          "animation-delay": "1000ms",
+        },
+        ".animation-delay-2000": {
+          "animation-delay": "2000ms",
+        },
+        ".animation-delay-4000": {
+          "animation-delay": "4000ms",
+        },
+      }
+      addUtilities(newUtilities)
+    },
+  ],
 } satisfies Config
 
 export default config
